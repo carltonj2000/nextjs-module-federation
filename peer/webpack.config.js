@@ -35,6 +35,9 @@ module.exports = {
       remotes: {
         host: "host",
       },
+      exposes: {
+        "./DogCaption": "./src/DogCaption",
+      },
       shared: require("./package.json").dependencies,
     }),
     new HtmlWebpackPlugin({

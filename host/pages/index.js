@@ -1,6 +1,7 @@
 import Head from "next/head";
 
 import DogImage from "../components/DogImage";
+import DogCaptionRemote from "../components/DogCaptionRemote";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <DogImage />
+      <DogCaptionRemote name={"Freddy"} />
     </div>
   );
 }
