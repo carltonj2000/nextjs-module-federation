@@ -50,7 +50,6 @@ function DogCaptionRemote({ name }) {
   const scope = "peer";
   const module = "./DogCaption";
 
-  console.log("global", global, global[scope]);
   if (!ready || failed || !global[scope]) return null;
 
   global[scope].init(

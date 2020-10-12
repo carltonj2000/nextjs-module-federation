@@ -1,7 +1,17 @@
 import React from "react";
 
-function DogCaption({ name }) {
-  return <div>You should adopt {name} because she/he is very cute!</div>;
-}
+export default class DogCaption extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { number: 20 };
+  }
 
-export default DogCaption;
+  render() {
+    return (
+      <div>
+        You should adopt {this.props.name} because she/he is very cute! A number
+        is {this.state.number}.
+      </div>
+    );
+  }
+}
