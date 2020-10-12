@@ -11,7 +11,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <DogImage />
-      <DogCaptionRemote name={"Freddy"} />
+      <DogCaptionRemote name="Freddy" />
     </div>
   );
 }

@@ -47,9 +47,37 @@ function DogCaptionRemote({ name }) {
     "http://localhost:4002/remoteEntry.js"
   );
 
-  if (!ready || failed) return null;
+  const scope = "peer";
+  const module = "./DogCaption";
 
-  return <div>Should be a dog caption</div>;
+  console.log("global", global, global[scope]);
+  if (!ready || failed || !global[scope]) return null;
+
+  global[scope].init(
+    Object.assign(
+      {
+        react: {
+          get: () => Promise.resolve(() => require("react")),
+          loaded: true,
+          version: [99, 99, 99],
+        },
+      },
+      global.__webpack_require__ ? global.__webpack_require__.o : {}
+    )
+  );
+
+  const Component = React.lazy(() =>
+    global[scope].get(module).then((factory) => {
+      const Module = factory();
+      return Module;
+    })
+  );
+
+  return (
+    <React.Suspense fallback={<div>Loading caption</div>}>
+      <Component name={name} />
+    </React.Suspense>
+  );
 }
 
 export default DogCaptionRemote;
