@@ -1,17 +1,8 @@
-import Head from "next/head";
+import dynamic from "next/dynamic";
 
-import DogImage from "../components/DogImage";
-import DogCaptionRemote from "../components/DogCaptionRemote";
+const DynamicComponentWithNoSSR = dynamic(() => import("../components/Home"), {
+  ssr: false,
+});
 
-export default function Home() {
-  return (
-    <div>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <DogImage />
-      <DogCaptionRemote name="Freddy" />
-    </div>
-  );
-}
+//export default () => <DynamicComponentWithNoSSR />;
+export default () => <div>hi</div>;

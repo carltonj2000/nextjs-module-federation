@@ -1,4 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
+
+const DogCaption = ({ name }) => {
+  const [number, numberSet] = useState(4);
+
+  return (
+    <div>
+      You should adopt {name} because she/he is very cute! A number is {number}.
+    </div>
+  );
+};
+
+export default DogCaption;
+
+/*
+// with the following code do not need to externalize react 
 
 export default class DogCaption extends React.Component {
   constructor(props) {
@@ -8,10 +23,7 @@ export default class DogCaption extends React.Component {
 
   render() {
     return (
-      <div>
-        You should adopt {this.props.name} because she/he is very cute! A number
-        is {this.state.number}.
-      </div>
     );
   }
 }
+*/

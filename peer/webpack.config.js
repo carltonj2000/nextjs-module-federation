@@ -14,6 +14,12 @@ module.exports = {
   output: {
     publicPath: "http://localhost:4002/",
   },
+  /*
+  externals: {
+    react: "React",
+    "react-dom": "ReactDOM",
+  },
+  */
   module: {
     rules: [
       {
